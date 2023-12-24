@@ -5,7 +5,6 @@ ENDPOINT = "https://flights-api.buraky.workers.dev"
 
 response = requests.get(ENDPOINT)
 
-
 #HTTP status test
 if(200 <= response.status_code == 200): 
     print("HTTP Status:", response.status_code, " PASSED")
@@ -13,6 +12,10 @@ else:
     print("HTTP Status:", response.status_code, " FAILED")
 
 #Response test
+if(response.encoding == 'utf-8'):
+    print("JSON encoding:", response.encoding,"PASSED")
+else:
+    print("JSON encoding:", response.encoding,"FAILED")
 print(response.text)
 
 #Header check
